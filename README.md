@@ -1,3 +1,13 @@
+# Fork for fixing aarch64 problems
+
+This is a fork of https://github.com/androidoffsec/baremetal_kasan which
+for unknown reasons is in archive mode.
+
+The focus of this repsitory is to get aarch64 working again to have a
+reference implementation of KASan for this platform.
+
+The original README follows.
+
 # Bare-metal KASan implementation
 
 *This is not an officially supported Google product.*
