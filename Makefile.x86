@@ -6,7 +6,6 @@ KASAN_SHADOW_MEMORY_START := 0x07000000
 KASAN_SHADOW_MEMORY_SIZE := 0x1000000
 
 ARCH_TARGET := i386-none-none
-KASAN_TARGET := i386-linux-gnu
 
 CFLAGS_ARCH := --target=$(ARCH_TARGET)
 QEMU := qemu-system-i386 -nographic -m 128M -kernel

@@ -71,11 +71,6 @@ LD_SCRIPT_GEN := kasan_test.lds
 # Use KASAN_CC_FLAGS for the code we would like to cover with KASan
 sanitized_lib.o: CFLAGS := $(CFLAGS) $(KASAN_CC_FLAGS)
 
-# This workaround is not needed if you build the project with the LLVM
-# toolchain of version 18 and higher (i.e. which includes
-# https://github.com/llvm/llvm-project/pull/72933)
-sanitized_lib.o: CFLAGS := $(subst $(ARCH_TARGET),$(KASAN_TARGET),$(CFLAGS))
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 

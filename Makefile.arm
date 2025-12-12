@@ -7,7 +7,6 @@ KASAN_SHADOW_MEMORY_START := 0x4A700000
 KASAN_SHADOW_MEMORY_SIZE := 0x2000000
 
 ARCH_TARGET := arm-arm-none-eabi
-KASAN_TARGET := arm-arm-linux-gnu
 
 CFLAGS_ARCH := --target=$(ARCH_TARGET) -mfloat-abi=soft -mcpu=cortex-a7
 CFLAGS_ARCH += -DUART_BASE_ADDRESS=$(UART_BASE_ADDRESS)
