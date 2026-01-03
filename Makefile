@@ -11,6 +11,8 @@
 
 CC := clang
 LD := ld.lld
+OBJDUMP := llvm-objdump
+CXXFILT := llvm-cxxfilt
 
 ARCH ?= arm
 SUPPORTED_ARCH := arm aarch64 riscv32 riscv64 x86
@@ -82,6 +84,7 @@ $(LD_SCRIPT_GEN): $(LD_SCRIPT)
 
 kasan_test: $(LD_SCRIPT_GEN) $(OBJS)
 	$(LD) -T $(LD_SCRIPT_GEN) $(LDFLAGS) $(OBJS) -o $@
+	$(OBJDUMP) -d $@ | $(CXXFILT) > $@.lst
 
 .PHONY: run
 run: kasan_test
