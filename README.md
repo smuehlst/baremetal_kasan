@@ -5,7 +5,8 @@ for unknown reasons is in archive mode.
 
 Further development and bugfixing is done at https://codeberg.org/larchcone/baremetal_kasan.
 
-The GitHub fork is in archive mode.
+The GitHub repository at https://github.com/smuehlst/baremetal_kasan.git
+is a mirror of the Codeberg repository.
 
 The original README follows.
 
