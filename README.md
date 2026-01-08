@@ -1,4 +1,4 @@
-# Fork for fixing aarch64 problems
+# Fork for fixing problems and further development
 
 This is a fork of https://github.com/androidoffsec/baremetal_kasan which
 for unknown reasons is in archive mode.
