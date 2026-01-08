@@ -18,16 +18,13 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define CALLER_PC ((unsigned long)__builtin_return_address(0))
-
 #ifdef KASAN_ENABLED
 
-void *__kasan_memcpy(void *dst, const void *src, unsigned int size,
-                     uintptr_t pc);
-void *__kasan_memset(void *buf, int c, unsigned int size, uintptr_t pc);
+void *__kasan_memcpy(void *dst, const void *src, unsigned int size);
+void *__kasan_memset(void *buf, int c, unsigned int size);
 
-#define memcpy(dst, src, size) __kasan_memcpy(dst, src, size, CALLER_PC)
-#define memset(buf, c, size) __kasan_memset(buf, c, size, CALLER_PC)
+#define memcpy(dst, src, size) __kasan_memcpy(dst, src, size)
+#define memset(buf, c, size) __kasan_memset(buf, c, size)
 
 #else  // KASAN_ENABLED
 

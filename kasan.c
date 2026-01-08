@@ -34,6 +34,8 @@
 #define KASAN_SHADOW_TO_MEM(shadow) \
   (((shadow) - KASAN_SHADOW_MAPPING_OFFSET) << KASAN_SHADOW_SHIFT)
 
+#define CALLER_PC ((unsigned long)__builtin_return_address(0))
+
 void kasan_bug_report(unsigned long addr, size_t size,
                       unsigned long buggy_shadow_address, uint8_t is_write,
                       unsigned long ip);
@@ -151,15 +153,18 @@ void __asan_handle_no_return(void) {}
 
 // KASan memcpy/memset hooks.
 
-void *__kasan_memcpy(void *dst, const void *src, unsigned int size,
-                     unsigned long pc) {
+void *__kasan_memcpy(void *dst, const void *src, unsigned int size) {
+  unsigned long const pc = CALLER_PC;
+
   kasan_check_memory((unsigned long)dst, size, /*is_write*/ true, pc);
   kasan_check_memory((unsigned long)src, size, /*is_write*/ false, pc);
 
   return memcpy(dst, src, size);
 }
 
-void *__kasan_memset(void *buf, int c, unsigned int size, unsigned long pc) {
+void *__kasan_memset(void *buf, int c, unsigned int size) {
+  unsigned long const pc = CALLER_PC;
+
   kasan_check_memory((unsigned long)buf, size, /*is_write*/ true, pc);
 
   return memset(buf, c, size);
