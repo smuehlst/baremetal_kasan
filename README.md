@@ -3,8 +3,9 @@
 This is a fork of https://github.com/androidoffsec/baremetal_kasan which
 for unknown reasons is in archive mode.
 
-The focus of this repsitory is to get aarch64 working again to have a
-reference implementation of KASan for this platform.
+Further development and bugfixing is done at https://codeberg.org/larchcone/baremetal_kasan.
+
+The GitHub fork is in archive mode.
 
 The original README follows.
 
