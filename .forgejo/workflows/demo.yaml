@@ -1,0 +1,10 @@
+on:
+  push:
+    branches:
+      - main-next
+
+jobs:
+  test:
+    runs-on: docker
+    steps:
+      - run: echo All good!
