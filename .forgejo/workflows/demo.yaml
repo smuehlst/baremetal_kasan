@@ -10,6 +10,6 @@ jobs:
     container:
       image: codeberg.org/larchcone/ci/node:20-custom
     steps:
-      - run: uname -a
-      - run: free -h
-      - run: dpkg -l | grep qemu
+      - name: checkout code
+        uses: actions/checkout@v4
+      - run: ls -la
