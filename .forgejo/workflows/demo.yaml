@@ -12,4 +12,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-      - run: ls -la
+      - run: |
+          ulimit -t 10 # kill QEMU after 10 seconds CPU time
+          ARCH=aarch64 make clean run
