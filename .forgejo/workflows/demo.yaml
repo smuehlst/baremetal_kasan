@@ -9,3 +9,8 @@ jobs:
     runs-on: docker
     steps:
       - run: echo All good!
+      - run: uname -a
+      - run: cat /etc/os-release
+      - run: df -h
+      - run: free -h
+      - run: dpkg -l
