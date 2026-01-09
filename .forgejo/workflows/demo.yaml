@@ -7,10 +7,9 @@ on:
 jobs:
   test:
     runs-on: docker
+    container:
+      image: codeberg.org/larchcone/ci/node:20-custom
     steps:
-      - run: echo All good!
       - run: uname -a
-      - run: cat /etc/os-release
-      - run: df -h
       - run: free -h
-      - run: dpkg -l
+      - run: dpkg -l | grep qemu
