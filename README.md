@@ -1,11 +1,14 @@
-# Fork for fixing problems and further development
+# Fork for bugfixing and further development
 
-This is a fork of https://github.com/androidoffsec/baremetal_kasan which
-for unknown reasons is in archive mode.
+![Test status badge for main-next branch](https://codeberg.org/larchcone/baremetal_kasan/actions/workflows/test.yaml/badge.svg?branch=main-next)
+![Open issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/open.svg)
+![Closed issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/closed.svg)
+
+This is a fork of https://github.com/androidoffsec/baremetal_kasan which is in archive mode.
 
 Further development and bugfixing is done at https://codeberg.org/larchcone/baremetal_kasan.
 
-The GitHub repository at https://github.com/smuehlst/baremetal_kasan.git
+The GitHub repository https://github.com/smuehlst/baremetal_kasan.git
 is a mirror of the Codeberg repository.
 
 The original README follows.
