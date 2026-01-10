@@ -13,15 +13,15 @@ jobs:
         shell: bash
 
     container:
-      image: codeberg.org/larchcone/ci/node:20-custom
+      image: codeberg.org/larchcone/ci/node:20-custom-v1
 
     steps:
       - name: checkout code
         uses: actions/checkout@v4
       - run: id
       - run: pwd
-      - run: clang --version
-      - run: clang-21 --version
+      - run: clang --version || true
+      - run: clang-21 --version || true
       - run: |
           export ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21
           make clean kasan_test
