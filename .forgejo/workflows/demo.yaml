@@ -7,11 +7,22 @@ on:
 jobs:
   test:
     runs-on: docker
+
+    defaults:
+      run:
+        shell: bash
+
     container:
       image: codeberg.org/larchcone/ci/node:20-custom
+
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+      - run: id
+      - run: pwd
+      - run: clang-21 --version
       - run: |
+          export ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21
+          make clean kasan_test
           ulimit -t 10 # kill QEMU after 10 seconds CPU time
-          ARCH=aarch64 make clean run
+          make run
