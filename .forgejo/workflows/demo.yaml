@@ -20,10 +20,8 @@ jobs:
         uses: actions/checkout@v4
       - run: id
       - run: pwd
-      - run: clang --version || true
-      - run: clang-21 --version || true
+      - run: ls -la
       - run: |
-          export ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21
-          make clean kasan_test
+          make ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21 clean kasan_test
           ulimit -t 10 # kill QEMU after 10 seconds CPU time
-          make run
+          make ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21 run
