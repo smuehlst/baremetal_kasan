@@ -1,0 +1,24 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main-next
+
+jobs:
+  test:
+    runs-on: docker
+
+    container:
+      image: codeberg.org/larchcone/ci/node:20-custom-v1
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: Run arm test
+        run: |
+          make ARCH=arm CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21 clean run
+
+      - name: Run aarch64 test
+        run: |
+          make ARCH=aarch64 CC=clang-21 LD=ld.lld-21 OBJDUMP=llvm-objdump-21 CXXFILT=llvm-cxxfilt-21 clean run

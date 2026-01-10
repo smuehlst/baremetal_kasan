@@ -9,6 +9,6 @@ KASAN_SHADOW_MEMORY_SIZE := 0x2000000
 ARCH_TARGET := aarch64-none-elf
 
 CFLAGS_ARCH := --target=$(ARCH_TARGET) -mcpu=cortex-a53+nofp+nosimd -mstrict-align
-CFLAGS_ARCH += -DUART_BASE_ADDRESS=$(UART_BASE_ADDRESS)
+CFLAGS_ARCH += -DUART_BASE_ADDRESS=$(UART_BASE_ADDRESS) -DQEMU_EXIT -DQEMU_EXIT_AARCH64
 
-QEMU := qemu-system-aarch64 -M virt -cpu cortex-a53 -m 256M -nographic -kernel
+QEMU := qemu-system-aarch64 -M virt -cpu cortex-a53 -m 256M -nographic -semihosting -kernel

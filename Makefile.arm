@@ -9,6 +9,6 @@ KASAN_SHADOW_MEMORY_SIZE := 0x2000000
 ARCH_TARGET := arm-arm-none-eabi
 
 CFLAGS_ARCH := --target=$(ARCH_TARGET) -mfloat-abi=soft -mcpu=cortex-a7 -mno-unaligned-access
-CFLAGS_ARCH += -DUART_BASE_ADDRESS=$(UART_BASE_ADDRESS)
+CFLAGS_ARCH += -DUART_BASE_ADDRESS=$(UART_BASE_ADDRESS) -DQEMU_EXIT -DQEMU_EXIT_ARM
 
-QEMU := qemu-system-arm -M virt -cpu cortex-a7 -m 256M -nographic -kernel
+QEMU := qemu-system-arm -M virt -cpu cortex-a7 -m 256M -nographic -semihosting -kernel
