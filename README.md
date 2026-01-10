@@ -1,8 +1,8 @@
 # Fork for bugfixing and further development
 
-![Test status badge for main-next branch](https://codeberg.org/larchcone/baremetal_kasan/actions/workflows/test.yaml/badge.svg?branch=main-next)
-![Open issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/open.svg)
-![Closed issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/closed.svg)
+[![Test status badge for main-next branch](https://codeberg.org/larchcone/baremetal_kasan/actions/workflows/test.yaml/badge.svg?branch=main-next)](https://codeberg.org/larchcone/baremetal_kasan/actions?workflow=test.yaml)
+[![Open issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/open.svg)](https://codeberg.org/larchcone/baremetal_kasan/issues?state=open)
+[![Closed issues](https://codeberg.org/larchcone/baremetal_kasan/badges/issues/closed.svg)](https://codeberg.org/larchcone/baremetal_kasan/issues?state=closed)
 
 This is a fork of https://github.com/androidoffsec/baremetal_kasan which is in archive mode.
 
