@@ -48,17 +48,19 @@ __attribute__((noreturn)) void semihost_exit(int status)
 __attribute__((noreturn)) void semihost_exit(int status)
 {
   // Parameter block: {Reason, Subcode/Status}
-    uint32_t params[2] = {0x20026, (uint32_t)status};
+  uint32_t params[2] = {0x20026, (uint32_t)status};
 
-    register uint32_t reg0 __asm__("r0") = 0x20; // SYS_EXIT_EXTENDED
-    register uint32_t* reg1 __asm__("r1") = params;
+  register uint32_t reg0 __asm__("r0") = 0x20; // SYS_EXIT_EXTENDED
+  register uint32_t *reg1 __asm__("r1") = params;
 
-    __asm__ volatile (
-        "svc 0x123456"
-        :
-        : "r"(reg0), "r"(reg1)
-        : "memory"
-    );
+  __asm__ volatile(
+      "svc 0x123456"
+      :
+      : "r"(reg0), "r"(reg1)
+      : "memory");
+
+  for (;;)
+    ;
 }
 #endif
 #endif
